@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500,600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/35c398e458.js" crossorigin="anonymous"></script>
+
+
+{% block content %}
+
+
+
+        <div id="mainbody">
+            <div id="btn1">
+            <h1>Trending Posts</h1>
+                {% for cat in categories %}
+                    <a href="filter/{{ cat.id }}"><button id="btn">{{ cat.name }}</button></a>
+                {% endfor %}
+            </div>
+            <div class="groupblog">
+
+                {% for post in posts %}
+                <div id="inner-div">
+                <a class="blog" href="{{ post.get_absolute_url }}">
+                    <img class="blog-img" src="{{ post.image.url }}"/>
+                    <figcaption>
+                        <div style="width:100%;margin-left:20px;"><b class="blog-heading" style="width:100%;">{{ post.title|truncatechars:35 }}</b><br><br></div>
+                        <div style="width:100%;"><span class="blog-author">{{ post.author }}</span> |<span class="blog-publish-date">{{ post.date }}</span><br></div>
+                        <p class="blog-para" style="display:block;">{{ post.content|truncatechars:250|safe }}</p>
+                    </figcaption>
+                </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+{% endblock %}

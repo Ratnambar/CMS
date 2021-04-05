@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <div class="groupblog">
+                {% for article in articles %}
+                <div id="inner-div">
+                    <a class="blog" href="{% url 'post-detail' article.slug %}">
+                        <img class="blog-img" src="{{ article.image.url }}"/>
+                        <figcaption>
+                            <b class="blog-heading">{{ article.title }}</b><br><br>
+                            <span style="color:blue;padding:15px;">{{ article.author }}</span> | 23 Jul 2019<br>
+                            <p class="blog-para">{{ article.content|truncatechars:250|safe  }}</p>
+                        </figcaption>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+{% endblock %}

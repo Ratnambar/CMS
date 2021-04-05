@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% load static %}
+<!--    <p>{{str}}</p>-->
+<!--    <p>{{ list|length }}</p>-->
+<!--    <p>{{ list.1 }}</p>-->
+<!--    <p>{{ dict.3 }}</p>-->
+<!--    {% for post in post %}-->
+     <div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content|truncatechars:100 }}</p>
+     </div>
+<!--    {% endfor %}-->
